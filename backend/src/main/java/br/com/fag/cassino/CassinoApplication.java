@@ -1,13 +1,13 @@
-package br.com.fag.seektweets;
+package br.com.fag.cassino;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SeekTweetsApplication {
+public class CassinoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SeekTweetsApplication.class, args);
+		SpringApplication.run(CassinoApplication.class, args);
 	}
 
 }
