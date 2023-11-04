@@ -1,5 +1,10 @@
 package br.com.fag.cassino.domain.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ContaBO {
   private Float valorGasto;
   private Float valorAdquirido;
