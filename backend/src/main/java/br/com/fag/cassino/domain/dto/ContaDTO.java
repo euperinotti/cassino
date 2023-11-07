@@ -28,6 +28,9 @@ public class ContaDTO {
   }
 
   public void setValorGasto(Float valorGasto) {
+    if (valorGasto < 0) {
+      throw new ArithmeticException("Não é possível incrementar números negativos");
+    }
     this.valorGasto += valorGasto;
   }
 }
