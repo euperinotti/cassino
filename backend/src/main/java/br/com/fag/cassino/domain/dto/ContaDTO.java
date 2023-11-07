@@ -14,6 +14,10 @@ public class ContaDTO {
   private Integer quantidadeDeFichas;
 
   public ContaDTO() {
+    this.valorGasto = 0f;
+    this.valorAdquirido = 0f;
+    this.retornoFinal = 0f;
+    this.quantidadeDeFichas = 0;
   }
 
   public ContaDTO(Float valorGasto, Float valorAdquirido, Float retornoFinal, Integer quantidadeDeFichas) {
@@ -21,6 +25,10 @@ public class ContaDTO {
     this.valorAdquirido = valorAdquirido;
     this.retornoFinal = retornoFinal;
     this.quantidadeDeFichas = quantidadeDeFichas;
+  }
+
+  public void setValorGasto(Float valorGasto) {
+    this.valorGasto += valorGasto;
   }
 }
 
