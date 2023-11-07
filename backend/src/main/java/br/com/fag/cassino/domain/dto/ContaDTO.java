@@ -1,10 +1,12 @@
 package br.com.fag.cassino.domain.dto;
 
 import lombok.Setter;
+import lombok.ToString;
 import lombok.Getter;
 
 @Getter
 @Setter
+@ToString
 public class ContaDTO {
   private Float valorGasto;
   private Float valorAdquirido;
