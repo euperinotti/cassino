@@ -1,5 +1,6 @@
 package br.com.fag.cassino.domain.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,7 @@ import lombok.ToString;
 @Table(name = "carta")
 public class CartaBO {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private Long Id;
   private Boolean tipo;
   private Double valor;

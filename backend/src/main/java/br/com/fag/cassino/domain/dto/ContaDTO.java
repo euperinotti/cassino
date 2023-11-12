@@ -22,13 +22,10 @@ public class ContaDTO {
   private Long Id;
   
   @NotBlank
-  private Double valorGasto;
+  private Double saldoDePerda;
   
   @NotBlank
-  private Double valorAdquirido;
-
-  @NotBlank
-  private Double retornoFinal;
+  private Double saldoDeGanho;
 
   @NotBlank
   private Integer quantidadeDeFichas;

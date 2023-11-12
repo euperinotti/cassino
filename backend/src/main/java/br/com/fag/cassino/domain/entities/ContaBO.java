@@ -1,5 +1,6 @@
 package br.com.fag.cassino.domain.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,16 +22,14 @@ public class ContaBO {
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @NotBlank
+  @Column(name = "id")
   private Long Id;
   
   @NotBlank
-  private Double valorGasto;
+  private Double saldoDePerda;
   
   @NotBlank
-  private Double valorAdquirido;
-
-  @NotBlank
-  private Double retornoFinal;
+  private Double saldoDeGanho;
 
   @NotBlank
   private Integer quantidadeDeFichas;

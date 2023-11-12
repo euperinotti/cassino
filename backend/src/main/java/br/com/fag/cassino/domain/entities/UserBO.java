@@ -5,8 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SecondaryTable;
-import jakarta.persistence.SecondaryTables;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -21,10 +21,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
-@SecondaryTables({
-    @SecondaryTable(name = "conta")
-})
+@Table(name = "usuario")
 public class UserBO {
 
   @Id
@@ -37,6 +34,7 @@ public class UserBO {
   private String nome;
 
   @NotBlank
-  @Column(table = "conta")
+  @OneToOne
+  @PrimaryKeyJoinColumn()
   private ContaBO conta;
 }
