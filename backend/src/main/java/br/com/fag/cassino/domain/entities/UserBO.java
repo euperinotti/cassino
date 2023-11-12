@@ -1,41 +1,25 @@
 package br.com.fag.cassino.domain.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name = "user")
 public class UserBO {
+
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long Id;
+
   private String nome;
+
   private ContaBO conta;
-  private Integer quantidadeDeFichas;
-
-  public UserBO() {
-  }
-
-  public UserBO(String nome, ContaBO conta, Integer quantidadeDeFichas) {
-    this.nome = nome;
-    this.conta = conta;
-    this.quantidadeDeFichas = quantidadeDeFichas;
-  }
-
-  public String getNome() {
-    return this.nome;
-  }
-
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
-
-  public ContaBO getConta() {
-    return this.conta;
-  }
-
-  public void setConta(ContaBO conta) {
-    this.conta = conta;
-  }
-
-  public Integer getQuantidadeDeFichas() {
-    return this.quantidadeDeFichas;
-  }
-
-  public void setQuantidadeDeFichas(Integer quantidadeDeFichas) {
-    this.quantidadeDeFichas = quantidadeDeFichas;
-  }
-
 }

@@ -1,24 +1,30 @@
 package br.com.fag.cassino.domain.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "conta")
 public class ContaBO {
-  private Float valorGasto;
-  private Float valorAdquirido;
-  private Float retornoFinal;
+  
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @NotBlank
+  private Long Id;
+  private Double valorGasto;
+  private Double valorAdquirido;
+  private Double retornoFinal;
   private Integer quantidadeDeFichas;
-
-  public ContaBO() {
-  }
-
-  public ContaBO(Float valorGasto, Float valorAdquirido, Float retornoFinal, Integer quantidadeDeFichas) {
-    this.valorGasto = valorGasto;
-    this.valorAdquirido = valorAdquirido;
-    this.retornoFinal = retornoFinal;
-    this.quantidadeDeFichas = quantidadeDeFichas;
-  }
 
 }
