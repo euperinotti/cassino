@@ -22,9 +22,17 @@ public class ContaBO {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @NotBlank
   private Long Id;
+  
+  @NotBlank
   private Double valorGasto;
+  
+  @NotBlank
   private Double valorAdquirido;
+
+  @NotBlank
   private Double retornoFinal;
+
+  @NotBlank
   private Integer quantidadeDeFichas;
 
 }
