@@ -1,5 +1,6 @@
 package br.com.fag.cassino.domain.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,11 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class FichaDTO {
-  private Long id;
-  private Double valor = 5d;
+public class CompraDTO {
+
+  @NotBlank
+  private Long Id;
+  private Long idConta;
+  private Long idFicha;
+  private Integer quantidadeDeFichas;
 }

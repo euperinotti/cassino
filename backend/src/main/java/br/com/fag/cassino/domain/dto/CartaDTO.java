@@ -11,7 +11,8 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class FichaDTO {
-  private Long id;
-  private Double valor = 5d;
+public class CartaDTO {
+  private Long Id;
+  private Boolean tipo;
+  private Double valor;
 }
