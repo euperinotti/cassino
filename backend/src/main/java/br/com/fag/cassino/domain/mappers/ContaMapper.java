@@ -5,10 +5,12 @@ import br.com.fag.cassino.domain.entities.ContaBO;
 
 public class ContaMapper {
   public static ContaBO toBO(ContaDTO dto) {
-    return new ContaBO(dto.getValorGasto(), dto.getValorAdquirido(), dto.getRetornoFinal(), dto.getQuantidadeDeFichas());
+    return new ContaBO(dto.getId(), dto.getSaldoDePerda(), dto.getSaldoDeGanho(),
+        dto.getQuantidadeDeFichas());
   }
 
   public static ContaDTO toDTO(ContaBO bo) {
-    return new ContaDTO(bo.getValorGasto(), bo.getValorAdquirido(), bo.getRetornoFinal(), bo.getQuantidadeDeFichas());
+    return new ContaDTO(bo.getId(), bo.getSaldoDePerda(), bo.getSaldoDeGanho(),
+        bo.getQuantidadeDeFichas());
   }
 }
