@@ -1,6 +1,5 @@
 package br.com.fag.cassino.domain.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,12 +12,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
-  @NotBlank
-  private Long Id;
-
-  @NotBlank
+  private Long id;
   private String nome;
-
-  @NotBlank
   private ContaDTO conta;
+
+  public UserDTO(String nome, ContaDTO conta) {
+    this.nome = nome;
+    this.conta = conta;
+  }
 }

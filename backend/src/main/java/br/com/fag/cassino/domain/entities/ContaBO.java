@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,17 +20,16 @@ import lombok.Setter;
 public class ContaBO {
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @NotBlank
   @Column(name = "id")
   private Long Id;
-  
-  @NotBlank
   private Double saldoDePerda;
-  
-  @NotBlank
   private Double saldoDeGanho;
-
-  @NotBlank
   private Integer quantidadeDeFichas;
+
+  public ContaBO(Double saldoDePerda, Double saldoDeGanho, Integer quantidadeDeFichas) {
+    this.saldoDePerda = saldoDePerda;
+    this.saldoDeGanho = saldoDeGanho;
+    this.quantidadeDeFichas = quantidadeDeFichas;
+  }
 
 }
