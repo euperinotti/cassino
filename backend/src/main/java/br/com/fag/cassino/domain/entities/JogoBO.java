@@ -24,7 +24,7 @@ import lombok.ToString;
 public class JogoBO {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
-  private Long Id;
+  private Long id;
 
   @ManyToOne
   @PrimaryKeyJoinColumn

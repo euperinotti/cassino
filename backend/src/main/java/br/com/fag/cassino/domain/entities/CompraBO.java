@@ -27,7 +27,7 @@ public class CompraBO {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @NotBlank
-  private Long Id;
+  private Long id;
 
   @ManyToOne
   @PrimaryKeyJoinColumn()

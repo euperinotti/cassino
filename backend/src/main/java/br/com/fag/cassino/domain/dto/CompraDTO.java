@@ -15,7 +15,7 @@ import lombok.ToString;
 public class CompraDTO {
 
   @NotBlank
-  private Long Id;
+  private Long id;
   private Long idConta;
   private Long idFicha;
   private Integer quantidadeDeFichas;

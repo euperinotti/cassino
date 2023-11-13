@@ -12,7 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class JogoDTO {
-  private Long Id;
+  private Long id;
   private UserDTO usuario;
   private CartaDTO carta;
 }

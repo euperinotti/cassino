@@ -12,7 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartaDTO {
-  private Long Id;
+  private Long id;
   private Boolean tipo;
   private Double valor;
 }

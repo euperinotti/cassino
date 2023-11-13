@@ -27,7 +27,7 @@ public class UserBO {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long Id;
+  private Long id;
 
   @Column(length = 255)
   private String nome;

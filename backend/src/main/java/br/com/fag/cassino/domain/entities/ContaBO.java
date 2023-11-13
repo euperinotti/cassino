@@ -21,7 +21,7 @@ public class ContaBO {
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
-  private Long Id;
+  private Long id;
   private Double saldoDePerda;
   private Double saldoDeGanho;
   private Integer quantidadeDeFichas;

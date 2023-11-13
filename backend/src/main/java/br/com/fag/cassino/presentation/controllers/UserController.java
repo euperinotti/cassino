@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fag.cassino.domain.dto.UserDTO;
 import br.com.fag.cassino.domain.entities.UserBO;
+import br.com.fag.cassino.domain.mappers.UserMapper;
 import br.com.fag.cassino.domain.repository.IUserRepository;
-import br.com.fag.cassino.domain.usecases.AddUser;
 
 @RestController
 @RequestMapping("user")
@@ -27,7 +27,7 @@ public class UserController {
 
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<Object> cadastrar(@RequestBody UserDTO entity) {
-    repository.save(new AddUser().execute(entity));
+    repository.save(UserMapper.toBO(entity));
     UserBO user = repository.findByNome(entity.getNome());
     return ResponseEntity.ok(user);
   }
