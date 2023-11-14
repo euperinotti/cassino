@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fag.cassino.domain.entities.CartaBO;
+import br.com.fag.cassino.domain.dto.CartaDTO;
+import br.com.fag.cassino.domain.dto.UserDTO;
 import br.com.fag.cassino.domain.entities.JogoBO;
-import br.com.fag.cassino.domain.entities.UserBO;
+import br.com.fag.cassino.domain.mappers.CartaMapper;
+import br.com.fag.cassino.domain.mappers.UserMapper;
+import br.com.fag.cassino.domain.repository.ICartaRepository;
 import br.com.fag.cassino.domain.repository.IJogoRepository;
+import br.com.fag.cassino.domain.repository.IUserRepository;
 import br.com.fag.cassino.domain.usecases.RegistrarJogo;
 
 @RestController
@@ -23,13 +27,28 @@ public class JogoController {
   @Autowired
   IJogoRepository repository;
 
+  @Autowired
+  ICartaRepository cartaRepository;
+
+  @Autowired
+  IUserRepository userRepository;
+
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<Object> registrar(@RequestBody RegistrarJogo entity) {
-    UserBO usuario = new UserBO();
-    CartaBO carta = new CartaBO();
-    usuario.setId(entity.getIdUsuario());
-    carta.setId(entity.getIdCarta());
-    return ResponseEntity.ok(repository.save(new JogoBO(null, usuario, carta)));
+    UserDTO usuario = UserMapper.toDTO(userRepository.findById(entity.getIdUsuario()).get());
+    CartaDTO carta = CartaMapper.toDTO(cartaRepository.findById(entity.getIdCarta()).get());
+    
+    if (carta.getTipo()) {
+      usuario.getConta().ganhouDinheiro(carta.getValor());
+      usuario.getConta().subtrairFicha();
+    } else {
+      usuario.getConta().perdeuDinheiro(carta.getValor());
+      usuario.getConta().subtrairFicha();
+    }
+
+    userRepository.save(UserMapper.toBO(usuario));
+
+    return ResponseEntity.ok(repository.save(new JogoBO(null, UserMapper.toBO(usuario), CartaMapper.toBO(carta))));
   }
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)

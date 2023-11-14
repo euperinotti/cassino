@@ -37,4 +37,12 @@ public class ContaDTO {
     this.quantidadeDeFichas--;
   }
 
+  public void ganhouDinheiro(Double quantidade) {
+    this.saldoDeGanho += quantidade;
+  }
+
+  public void perdeuDinheiro(Double quantidade) {
+    this.saldoDePerda += quantidade;
+  }
+
 }
