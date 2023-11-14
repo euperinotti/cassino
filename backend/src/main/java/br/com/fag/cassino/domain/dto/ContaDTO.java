@@ -29,7 +29,8 @@ public class ContaDTO {
   }
 
   public void adicionarFicha(Integer quantidade) {
-    this.quantidadeDeFichas = quantidade;
+    this.quantidadeDeFichas += quantidade;
+    this.saldoDePerda += quantidade * 5d;
   }
 
   public void subtrairFicha() {

@@ -27,8 +27,7 @@ public class UserController {
 
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<Object> cadastrar(@RequestBody UserDTO entity) {
-    repository.save(UserMapper.toBO(entity));
-    UserBO user = repository.findByNome(entity.getNome());
+    UserBO user = repository.save(UserMapper.toBO(entity));
     return ResponseEntity.ok(user);
   }
 
@@ -36,6 +35,12 @@ public class UserController {
   public ResponseEntity<Object> buscarTodos() {
     List<UserBO> users = repository.findAll();
     return ResponseEntity.ok(users);
+  }
+
+  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
+  public ResponseEntity<Object> buscarPorId(@PathVariable(value = "id") Long id) {
+    UserDTO user = UserMapper.toDTO(repository.findById(id));
+    return ResponseEntity.ok(user);
   }
 
   @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
