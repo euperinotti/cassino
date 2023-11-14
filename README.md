@@ -2,6 +2,12 @@
 
 Aplicação que simula um sistema de cassino utilizando SpringBoot e React
 
+## Utilização
+1. Executar o SQL do banco
+2. Instalar dependências (Backend e Frontend)
+3. Inicializar API Spring
+4. Inicializar o frontend 
+
 ## Backend
 
 O backend do sistema consiste em uma API responsável por se comunicar com o banco de dados e fazer o controle do consumo dos dados.
