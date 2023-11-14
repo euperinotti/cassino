@@ -28,4 +28,12 @@ public class ContaDTO {
     this.quantidadeDeFichas = quantidadeDeFichas;
   }
 
+  public void adicionarFicha(Integer quantidade) {
+    this.quantidadeDeFichas = quantidade;
+  }
+
+  public void subtrairFicha() {
+    this.quantidadeDeFichas--;
+  }
+
 }
