@@ -15,11 +15,27 @@ export const GameWindow = ({ ficha }: GameWindowProps) => {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.buscarCartas()
-      setCartas(response.data)
+      setCartas(shuffle(response.data))
     }
 
     fetchData()
   }, [])
+
+  function shuffle(array: CartaModel[]) {
+    let currentIndex = array.length,
+      randomIndex
+
+    while (currentIndex > 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex]
+      ]
+    }
+
+    return array
+  }
 
   if (ficha <= 0) {
     return (
