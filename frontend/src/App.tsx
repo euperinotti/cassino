@@ -1,6 +1,10 @@
 import { FormEvent, useState } from 'react'
 import * as axios from './axios/axios-provider'
+import { ButtonSubmit } from './components/ButtonSubmit'
+import { Heading } from './components/Heading'
+import { InputText } from './components/InputText'
 import { User } from './models/User'
+import { LoginForm } from './components/LoginForm'
 
 function App() {
   const [nome, setNome] = useState<string>('')
@@ -26,18 +30,17 @@ function App() {
 
   return (
     <>
-      <h1>Hello World</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+      <Heading value="Bem vindo ao cassino!" />
+      <LoginForm onSubmit={handleSubmit}>
+        <InputText
           name="nome"
           id="nome"
           value={nome}
           onChange={(value) => setNome(value.target.value)}
           placeholder="Insira seu nome"
         />
-        <input type="submit" value="Entrar" />
-      </form>
+        <ButtonSubmit value="Entrar" />
+      </LoginForm>
     </>
   )
 }
