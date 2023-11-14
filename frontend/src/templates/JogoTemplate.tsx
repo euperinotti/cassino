@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import * as axios from '../axios/axios-provider'
 import { AsideMenu } from '../components/AsideMenu'
-import { GameWindow } from '../components/Game'
+import { GameWindow } from '../components/GameWindow'
 import { User } from '../models/User'
 import * as S from './styles'
 
