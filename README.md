@@ -140,6 +140,6 @@ O frontend do sistema consiste em uma aplicação `React` feita com `Vite`
 
 Para inicilizar é necessário rodar `yarn install` ou `npm install` para instalar todos os pacotes necessários, em seguida `yarn dev` para executar a aplicação em mode de desenvolvimento.
 
-O frontend utiliza da biblioteca `axios` para fazer o trafego de dados do backend em Spring, portanto é necessário que os dois serviços estejam rodando simultaneamente
+O frontend utiliza da biblioteca `axios` para chamados ao backend, portanto é necessário que os dois serviços estejam rodando simultaneamente
 
 O frontend da aplicação roda na porta `5173`
