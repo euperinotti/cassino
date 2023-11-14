@@ -33,7 +33,7 @@ export const Image = styled.img`
 export const Verso = styled.div`
   width: 160px;
   height: 280px;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.black};
   border: 3px solid ${theme.colors.yellow};
   display: flex;
   align-items: center;
@@ -44,7 +44,11 @@ export const Verso = styled.div`
 
   h2,
   h3 {
-    color: ${theme.colors.black};
+    color: ${theme.colors.yellow};
+  }
+
+  h2 {
+    font-weight: ${theme.fonts.weight.regular};
   }
 
   &:hover {
