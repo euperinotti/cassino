@@ -24,7 +24,12 @@ function Login() {
       }
 
       const response = await axios.cadastrar(data)
-      console.log(response)
+      if (response.status == 200) {
+        window.sessionStorage.setItem('idUsuario', response.data?.id)
+        window.location.href = '/jogo'
+      } else {
+        alert(response.status + ' - ' + response.data)
+      }
     }
   }
 
