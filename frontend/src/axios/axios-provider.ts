@@ -4,6 +4,8 @@ import { User } from '../models/User'
 const URL = 'http://localhost:8080'
 
 export const cadastrar = async (data: User) => {
+  console.log(data)
+
   try {
     const json = await axios.post(`${URL}/user`, JSON.stringify(data), {
       headers: {
@@ -46,7 +48,12 @@ export const comprarFicha = async (idConta: number) => {
       JSON.stringify({
         idConta: idConta,
         quantidade: 1
-      })
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     )
 
     return {
@@ -56,12 +63,7 @@ export const comprarFicha = async (idConta: number) => {
   } catch (error) {
     return {
       status: 400,
-      data: 'Não foi comprar ficha'
+      data: 'Não foi possível comprar ficha'
     }
   }
 }
-
-// const api = fetch(`${URL}/user`, {
-//   method: 'POST',
-//   body: JSON.stringify(data)
-// })

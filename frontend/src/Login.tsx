@@ -17,9 +17,10 @@ function Login() {
         id: null,
         nome: nome,
         conta: {
+          id: null,
           saldoDePerda: 0.0,
           saldoDeGanho: 0.0,
-          saldoDeFichas: 0
+          quantidadeDeFichas: 0
         }
       }
 
